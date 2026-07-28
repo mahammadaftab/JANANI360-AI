@@ -18,7 +18,8 @@ import {
   Baby,
   PieChart,
   Heart,
-  Lock
+  Lock,
+  Award
 } from 'lucide-react';
 import { logout, UserRole } from '../store/authSlice';
 import { RootState } from '../store';
@@ -185,17 +186,27 @@ export const DashboardPage: React.FC = () => {
             )}
 
             {isTabAllowed('pediatric') && (
-              <button
-                onClick={() => setActiveTab('pediatric')}
-                className={`flex items-center space-x-2 px-4 py-2 text-xs font-semibold rounded-xl transition whitespace-nowrap ${
-                  activeTab === 'pediatric'
-                    ? 'bg-indigo-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
-                }`}
-              >
-                <Baby className="w-4 h-4" />
-                <span>Child EHR & Immunization</span>
-              </button>
+              <>
+                <button
+                  onClick={() => setActiveTab('pediatric')}
+                  className={`flex items-center space-x-2 px-4 py-2 text-xs font-semibold rounded-xl transition whitespace-nowrap ${
+                    activeTab === 'pediatric'
+                      ? 'bg-indigo-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+                  }`}
+                >
+                  <Baby className="w-4 h-4" />
+                  <span>Child EHR & Immunization</span>
+                </button>
+
+                <button
+                  onClick={() => navigate('/child-welfare-hub')}
+                  className="flex items-center space-x-2 px-4 py-2 text-xs font-bold rounded-xl transition whitespace-nowrap bg-gradient-to-r from-amber-500 to-emerald-500 hover:from-amber-400 hover:to-emerald-400 text-slate-950 shadow-md cursor-pointer border border-amber-300"
+                >
+                  <Award className="w-4 h-4 text-slate-950" />
+                  <span>Govt Welfare Hub</span>
+                </button>
+              </>
             )}
 
             {isTabAllowed('referrals') && (

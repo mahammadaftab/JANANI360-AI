@@ -24,10 +24,7 @@ import {
   Check
 } from 'lucide-react';
 import { useParams, useNavigate } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Baby, Syringe, Activity, ShieldCheck, Heart, User, Calendar, Plus, RefreshCw, X, CheckCircle2, Clock } from 'lucide-react';
-import { useParams } from 'react-router-dom';
 import { childService } from '../services/childService';
 import { Navbar } from '../components/Navbar';
 
@@ -327,8 +324,6 @@ I have logged your clinical query regarding **${data?.child?.fullName || 'the be
               </h1>
               <p className="text-xs text-slate-400 font-medium">
                 Mother: <strong className="text-emerald-300 font-semibold">{mother.fullName || 'Lakshmi Devi'}</strong> (RCH: <span className="font-mono text-slate-300">{mother.rchId || 'RCH-882190'}</span>) · Village: <strong className="text-slate-300">{mother?.village?.nameEn || 'Shiggaon Agri Sector'}</strong>
-              <p className="text-xs text-slate-400">
-                {t('childHealth.motherName')}: <strong className="text-slate-200">{mother?.fullName}</strong> (RCH: {mother?.rchId})
               </p>
             </div>
           </div>
@@ -348,6 +343,15 @@ I have logged your clinical query regarding **${data?.child?.fullName || 'the be
                 <option value="JAN-KA-HVR-554109-C1" className="bg-slate-900 text-emerald-300">Baby Aarav Gowda (Gold Star · 100% Immunized)</option>
               </select>
             </div>
+
+            {/* Government Benefits & Welfare Hub Button */}
+            <button 
+              onClick={() => navigate(`/child-welfare-hub/${selectedRchId}`)}
+              className="px-4 py-2 rounded-xl text-xs font-black transition flex items-center space-x-2 shadow-lg bg-gradient-to-r from-amber-500 to-emerald-500 hover:from-amber-400 hover:to-emerald-400 text-slate-950 border border-amber-300 cursor-pointer"
+            >
+              <Award className="w-4 h-4 text-slate-950" />
+              <span>Govt Benefits & Welfare Hub</span>
+            </button>
 
             {/* Sync Telemetry Button */}
             <button 
@@ -377,7 +381,8 @@ I have logged your clinical query regarding **${data?.child?.fullName || 'the be
             </span>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6 flex-1 w-full">

@@ -11,6 +11,7 @@ import { CasualtyErRadarPage } from './pages/CasualtyErRadarPage';
 import { FamilyTrackingPage } from './pages/FamilyTrackingPage';
 import { LaborRoomDashboardPage } from './pages/LaborRoomDashboardPage';
 import { ChildProfileHubPage } from './pages/ChildProfileHubPage';
+import { GovernmentChildWelfareHubPage } from './pages/GovernmentChildWelfareHubPage';
 import { DistrictCommandCenterPage } from './pages/DistrictCommandCenterPage';
 import { MotherPublicProfilePage } from './pages/MotherPublicProfilePage';
 import { QrScannerPage } from './pages/QrScannerPage';
@@ -157,6 +158,22 @@ export const App: React.FC = () => {
           element={
             <ProtectedRoute>
               <ChildProfileHubPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/child-welfare-hub/:id" 
+          element={
+            <ProtectedRoute>
+              <GovernmentChildWelfareHubPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/child-welfare-hub" 
+          element={
+            <ProtectedRoute>
+              <GovernmentChildWelfareHubPage />
             </ProtectedRoute>
           } 
         />

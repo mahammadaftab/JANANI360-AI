@@ -54,6 +54,7 @@ import laborRoutes from './routes/laborRoutes';
 import childRoutesPrisma from './routes/childRoutes';
 
 import analyticsRoutesPrisma from './routes/analyticsRoutes';
+import welfareRoutes from './routes/welfareRoutes';
 
 // Route Registries
 app.use('/api/v1/master', masterDataRoutes);
@@ -65,6 +66,7 @@ app.use('/api/v1/referrals', referralRoutes);
 app.use('/api/v1/labor', laborRoutes);
 app.use('/api/v1/children', childRoutesPrisma);
 app.use('/api/v1/analytics', analyticsRoutesPrisma);
+app.use('/api/v1/welfare', welfareRoutes);
 
 
 
